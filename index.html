@@ -23,77 +23,87 @@
       <a href="https://github.com/your-github" target="_blank" class="text-gray-400 hover:text-blue-400"><i class="fab fa-github text-2xl"></i></a>
     </div>
     <nav class="mt-6 space-x-4 animate-fade-in">
-      <a href="#home" class="text-sm text-blue-400 hover:underline">Home</a>
-      <a href="#education" class="text-sm text-blue-400 hover:underline">Education</a>
-      <a href="#projects" class="text-sm text-blue-400 hover:underline">Projects</a>
-      <a href="#experience" class="text-sm text-blue-400 hover:underline">Experience</a>
-      <a href="#resume" class="text-sm text-blue-400 hover:underline">Resume</a>
+      <button onclick="showSection('home')" class="text-sm text-blue-400 hover:underline">Home</button>
+      <button onclick="showSection('education')" class="text-sm text-blue-400 hover:underline">Education</button>
+      <button onclick="showSection('projects')" class="text-sm text-blue-400 hover:underline">Projects</button>
+      <button onclick="showSection('experience')" class="text-sm text-blue-400 hover:underline">Experience</button>
+      <button onclick="showSection('resume')" class="text-sm text-blue-400 hover:underline">Resume</button>
     </nav>
   </header>
 
-  <section id="home" class="max-w-4xl mx-auto px-4">
-    <h2 class="text-2xl font-semibold border-b border-gray-700 pb-2 mb-6">About Me</h2>
-    <p class="text-gray-300">
-      Cybersecurity student passionate about building secure systems and exploring innovative tech solutions.
-      Experienced with Python, Raspberry Pi, and database management.
-    </p>
-
-    <h2 class="text-2xl font-semibold border-b border-gray-700 pb-2 mt-10 mb-6">Quick Stats</h2>
-    <div class="grid grid-cols-2 gap-6 text-center">
-      <div class="bg-gray-800 p-4 rounded-xl transform transition duration-300 hover:scale-105">
-        <p class="text-3xl font-bold">0</p>
-        <p class="text-gray-400 mt-1">Months of Experience</p>
-      </div>
-      <div class="bg-gray-800 p-4 rounded-xl transform transition duration-300 hover:scale-105">
-        <p class="text-3xl font-bold">0</p>
-        <p class="text-gray-400 mt-1">Projects Completed</p>
-      </div>
-      <div class="bg-gray-800 p-4 rounded-xl transform transition duration-300 hover:scale-105">
-        <p class="text-3xl font-bold">1</p>
-        <p class="text-gray-400 mt-1">Projects Started</p>
-      </div>
-      <div class="bg-gray-800 p-4 rounded-xl transform transition duration-300 hover:scale-105">
-        <p class="text-3xl font-bold">4</p>
-        <p class="text-gray-400 mt-1">Interviews Experienced</p>
-      </div>
-    </div>
-  </section>
-
-  <section id="education" class="max-w-4xl mx-auto px-4 mt-16">
-    <h2 class="text-2xl font-semibold border-b border-gray-700 pb-2 mb-6">Education</h2>
-    <p class="text-gray-300">Cybersecurity Diploma – Add your institution and timeline here.</p>
-  </section>
-
-  <section id="projects" class="max-w-4xl mx-auto px-4 mt-16">
-    <h2 class="text-2xl font-semibold border-b border-gray-700 pb-2 mb-6">Projects</h2>
-    <div class="bg-gray-800 p-6 rounded-xl shadow-md">
-      <h3 class="text-xl font-bold">Blockchain Voting System</h3>
-      <p class="mt-2 text-gray-400">
-        A secure, tamper-proof electronic voting platform using blockchain technology, developed on Raspberry Pi with Python and DBMS integration.
+  <main class="max-w-4xl mx-auto px-4">
+    <section id="home" class="section">
+      <h2 class="text-2xl font-semibold border-b border-gray-700 pb-2 mb-6">About Me</h2>
+      <p class="text-gray-300">
+        Cybersecurity student passionate about building secure systems and exploring innovative tech solutions.
+        Experienced with Python, Raspberry Pi, and database management.
       </p>
-      <div class="flex flex-wrap gap-3 mt-4">
-        <span class="bg-gray-700 text-sm px-3 py-1 rounded-full">Python</span>
-        <span class="bg-gray-700 text-sm px-3 py-1 rounded-full">Raspberry Pi</span>
-        <span class="bg-gray-700 text-sm px-3 py-1 rounded-full">DBMS</span>
+
+      <h2 class="text-2xl font-semibold border-b border-gray-700 pb-2 mt-10 mb-6">Quick Stats</h2>
+      <div class="grid grid-cols-2 gap-6 text-center">
+        <div class="bg-gray-800 p-4 rounded-xl transform transition duration-300 hover:scale-105">
+          <p class="text-3xl font-bold">0</p>
+          <p class="text-gray-400 mt-1">Months of Experience</p>
+        </div>
+        <div class="bg-gray-800 p-4 rounded-xl transform transition duration-300 hover:scale-105">
+          <p class="text-3xl font-bold">0</p>
+          <p class="text-gray-400 mt-1">Projects Completed</p>
+        </div>
+        <div class="bg-gray-800 p-4 rounded-xl transform transition duration-300 hover:scale-105">
+          <p class="text-3xl font-bold">1</p>
+          <p class="text-gray-400 mt-1">Projects Started</p>
+        </div>
+        <div class="bg-gray-800 p-4 rounded-xl transform transition duration-300 hover:scale-105">
+          <p class="text-3xl font-bold">4</p>
+          <p class="text-gray-400 mt-1">Interviews Experienced</p>
+        </div>
       </div>
-    </div>
-    <div class="mt-6">
-      <a href="#" class="inline-block bg-blue-600 hover:bg-blue-500 text-white px-4 py-2 mt-4 rounded-md transition">View Other Projects</a>
-    </div>
-  </section>
+    </section>
 
-  <section id="experience" class="max-w-4xl mx-auto px-4 mt-16">
-    <h2 class="text-2xl font-semibold border-b border-gray-700 pb-2 mb-6">Experience</h2>
-    <p class="text-gray-300">Add your work or internship experience details here.</p>
-  </section>
+    <section id="education" class="section hidden mt-16">
+      <h2 class="text-2xl font-semibold border-b border-gray-700 pb-2 mb-6">Education</h2>
+      <p class="text-gray-300">Cybersecurity Diploma – Add your institution and timeline here.</p>
+    </section>
 
-  <section id="resume" class="max-w-4xl mx-auto px-4 mt-16">
-    <h2 class="text-2xl font-semibold border-b border-gray-700 pb-2 mb-6">Résumé</h2>
-    <p class="text-gray-400">Available upon request. Please contact me through email or LinkedIn.</p>
-  </section>
+    <section id="projects" class="section hidden mt-16">
+      <h2 class="text-2xl font-semibold border-b border-gray-700 pb-2 mb-6">Projects</h2>
+      <div class="bg-gray-800 p-6 rounded-xl shadow-md">
+        <h3 class="text-xl font-bold">Blockchain Voting System</h3>
+        <p class="mt-2 text-gray-400">
+          A secure, tamper-proof electronic voting platform using blockchain technology, developed on Raspberry Pi with Python and DBMS integration.
+        </p>
+        <div class="flex flex-wrap gap-3 mt-4">
+          <span class="bg-gray-700 text-sm px-3 py-1 rounded-full">Python</span>
+          <span class="bg-gray-700 text-sm px-3 py-1 rounded-full">Raspberry Pi</span>
+          <span class="bg-gray-700 text-sm px-3 py-1 rounded-full">DBMS</span>
+        </div>
+      </div>
+      <div class="mt-6">
+        <a href="#" class="inline-block bg-blue-600 hover:bg-blue-500 text-white px-4 py-2 mt-4 rounded-md transition">View Other Projects</a>
+      </div>
+    </section>
+
+    <section id="experience" class="section hidden mt-16">
+      <h2 class="text-2xl font-semibold border-b border-gray-700 pb-2 mb-6">Experience</h2>
+      <p class="text-gray-300">Add your work or internship experience details here.</p>
+    </section>
+
+    <section id="resume" class="section hidden mt-16">
+      <h2 class="text-2xl font-semibold border-b border-gray-700 pb-2 mb-6">Résumé</h2>
+      <p class="text-gray-400">Available upon request. Please contact me through email or LinkedIn.</p>
+    </section>
+  </main>
 
   <footer class="text-center text-gray-500 text-sm mt-20 mb-6">
     © 2025 Pablo Migo. Hosted on GitHub Pages.
   </footer>
+
+  <script>
+    function showSection(sectionId) {
+      const sections = document.querySelectorAll('.section');
+      sections.forEach(section => section.classList.add('hidden'));
+      document.getElementById(sectionId).classList.remove('hidden');
+    }
+  </script>
 </body>
 </html>
