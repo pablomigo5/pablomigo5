@@ -7,26 +7,65 @@
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   <link rel="icon" href="https://www.svgrepo.com/show/474217/shield-check.svg">
   <script src="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/js/all.min.js" crossorigin="anonymous"></script>
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+  </style>
 </head>
 <body class="bg-gray-900 text-white font-sans">
   <header class="text-center py-10">
     <h1 class="text-4xl font-bold">Pablo Migo</h1>
-    <p class="text-lg text-gray-400 mt-2">Cybersecurity Student</p>
+    <p class="text-lg text-gray-400 mt-2">Cybersecurity Student | Developer | Tech Enthusiast</p>
     <div class="flex justify-center space-x-6 mt-4">
       <a href="mailto:your-email@outlook.com" target="_blank" class="text-gray-400 hover:text-blue-400"><i class="fas fa-envelope text-2xl"></i></a>
       <a href="https://www.linkedin.com/in/your-linkedin" target="_blank" class="text-gray-400 hover:text-blue-400"><i class="fab fa-linkedin text-2xl"></i></a>
       <a href="https://github.com/your-github" target="_blank" class="text-gray-400 hover:text-blue-400"><i class="fab fa-github text-2xl"></i></a>
     </div>
+    <nav class="mt-6 space-x-4 animate-fade-in">
+      <a href="#home" class="text-sm text-blue-400 hover:underline">Home</a>
+      <a href="#education" class="text-sm text-blue-400 hover:underline">Education</a>
+      <a href="#projects" class="text-sm text-blue-400 hover:underline">Projects</a>
+      <a href="#experience" class="text-sm text-blue-400 hover:underline">Experience</a>
+      <a href="#resume" class="text-sm text-blue-400 hover:underline">Resume</a>
+    </nav>
   </header>
 
-  <section class="max-w-4xl mx-auto px-4">
+  <section id="home" class="max-w-4xl mx-auto px-4">
     <h2 class="text-2xl font-semibold border-b border-gray-700 pb-2 mb-6">About Me</h2>
     <p class="text-gray-300">
-      I am a Cybersecurity student passionate about securing digital infrastructures. Currently, I am studying network engineering through the Cisco Certified Network Associate,
-      aka (CCNA), python programming and working on projects.
+      Cybersecurity student passionate about building secure systems and exploring innovative tech solutions.
+      Experienced with Python, Raspberry Pi, and database management.
     </p>
 
-    <h2 class="text-2xl font-semibold border-b border-gray-700 pb-2 mt-10 mb-6">Featured Project</h2>
+    <h2 class="text-2xl font-semibold border-b border-gray-700 pb-2 mt-10 mb-6">Quick Stats</h2>
+    <div class="grid grid-cols-2 gap-6 text-center">
+      <div class="bg-gray-800 p-4 rounded-xl transform transition duration-300 hover:scale-105">
+        <p class="text-3xl font-bold">0</p>
+        <p class="text-gray-400 mt-1">Months of Experience</p>
+      </div>
+      <div class="bg-gray-800 p-4 rounded-xl transform transition duration-300 hover:scale-105">
+        <p class="text-3xl font-bold">0</p>
+        <p class="text-gray-400 mt-1">Projects Completed</p>
+      </div>
+      <div class="bg-gray-800 p-4 rounded-xl transform transition duration-300 hover:scale-105">
+        <p class="text-3xl font-bold">1</p>
+        <p class="text-gray-400 mt-1">Projects Started</p>
+      </div>
+      <div class="bg-gray-800 p-4 rounded-xl transform transition duration-300 hover:scale-105">
+        <p class="text-3xl font-bold">4</p>
+        <p class="text-gray-400 mt-1">Interviews Experienced</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="education" class="max-w-4xl mx-auto px-4 mt-16">
+    <h2 class="text-2xl font-semibold border-b border-gray-700 pb-2 mb-6">Education</h2>
+    <p class="text-gray-300">Cybersecurity Diploma – Add your institution and timeline here.</p>
+  </section>
+
+  <section id="projects" class="max-w-4xl mx-auto px-4 mt-16">
+    <h2 class="text-2xl font-semibold border-b border-gray-700 pb-2 mb-6">Projects</h2>
     <div class="bg-gray-800 p-6 rounded-xl shadow-md">
       <h3 class="text-xl font-bold">Blockchain Voting System</h3>
       <p class="mt-2 text-gray-400">
@@ -41,8 +80,15 @@
     <div class="mt-6">
       <a href="#" class="inline-block bg-blue-600 hover:bg-blue-500 text-white px-4 py-2 mt-4 rounded-md transition">View Other Projects</a>
     </div>
+  </section>
 
-    <h2 class="text-2xl font-semibold border-b border-gray-700 pb-2 mt-10 mb-6">Résumé</h2>
+  <section id="experience" class="max-w-4xl mx-auto px-4 mt-16">
+    <h2 class="text-2xl font-semibold border-b border-gray-700 pb-2 mb-6">Experience</h2>
+    <p class="text-gray-300">Add your work or internship experience details here.</p>
+  </section>
+
+  <section id="resume" class="max-w-4xl mx-auto px-4 mt-16">
+    <h2 class="text-2xl font-semibold border-b border-gray-700 pb-2 mb-6">Résumé</h2>
     <p class="text-gray-400">Available upon request. Please contact me through email or LinkedIn.</p>
   </section>
 
