@@ -20,14 +20,24 @@
       transform: translateY(0);
       transition: opacity 0.6s ease, transform 0.6s ease;
     }
-    .fade-exit {
-      opacity: 1;
-      transform: translateY(0);
-    }
     .fade-exit-active {
       opacity: 0;
       transform: translateY(20px);
       transition: opacity 0.4s ease, transform 0.4s ease;
+    }
+    .neon-button {
+      color: #00f0ff;
+      border: 1px solid #00f0ff;
+      padding: 0.4rem 1rem;
+      border-radius: 0.375rem;
+      background-color: transparent;
+      transition: all 0.3s;
+      box-shadow: 0 0 5px #00f0ff, 0 0 10px #00f0ff;
+    }
+    .neon-button:hover {
+      background-color: #00f0ff;
+      color: #000;
+      box-shadow: 0 0 10px #00f0ff, 0 0 20px #00f0ff;
     }
   </style>
 </head>
@@ -35,17 +45,12 @@
   <header class="text-center py-10">
     <h1 class="text-4xl font-bold">Pablo Migo</h1>
     <p class="text-lg text-gray-400 mt-2">Cybersecurity Student | Developer | Tech Enthusiast</p>
-    <div class="flex justify-center space-x-6 mt-4">
-      <a href="mailto:your-email@outlook.com" target="_blank" class="text-gray-400 hover:text-blue-400"><i class="fas fa-envelope text-2xl"></i></a>
-      <a href="https://www.linkedin.com/in/your-linkedin" target="_blank" class="text-gray-400 hover:text-blue-400"><i class="fab fa-linkedin text-2xl"></i></a>
-      <a href="https://github.com/your-github" target="_blank" class="text-gray-400 hover:text-blue-400"><i class="fab fa-github text-2xl"></i></a>
-    </div>
-    <nav class="mt-6 space-x-4 animate-fade-in">
-      <button onclick="showSection('home')" class="text-sm text-blue-400 hover:underline">Home</button>
-      <button onclick="showSection('education')" class="text-sm text-blue-400 hover:underline">Education</button>
-      <button onclick="showSection('projects')" class="text-sm text-blue-400 hover:underline">Projects</button>
-      <button onclick="showSection('experience')" class="text-sm text-blue-400 hover:underline">Experience</button>
-      <button onclick="showSection('resume')" class="text-sm text-blue-400 hover:underline">Resume</button>
+    <nav class="mt-6 space-x-4">
+      <button onclick="showSection('home')" class="neon-button text-sm">Home</button>
+      <button onclick="showSection('education')" class="neon-button text-sm">Education</button>
+      <button onclick="showSection('projects')" class="neon-button text-sm">Projects</button>
+      <button onclick="showSection('experience')" class="neon-button text-sm">Experience</button>
+      <button onclick="showSection('resume')" class="neon-button text-sm">Resume</button>
     </nav>
   </header>
 
@@ -60,19 +65,19 @@
       <h2 class="text-2xl font-semibold border-b border-gray-700 pb-2 mt-10 mb-6">Quick Stats</h2>
       <div class="grid grid-cols-2 gap-6 text-center">
         <div class="bg-gray-800 p-4 rounded-xl transform transition duration-300 hover:scale-105">
-          <p class="text-3xl font-bold">0</p>
+          <p id="monthsExperience" class="text-3xl font-bold">0</p>
           <p class="text-gray-400 mt-1">Months of Experience</p>
         </div>
         <div class="bg-gray-800 p-4 rounded-xl transform transition duration-300 hover:scale-105">
-          <p class="text-3xl font-bold">0</p>
+          <p id="projectsCompleted" class="text-3xl font-bold">0</p>
           <p class="text-gray-400 mt-1">Projects Completed</p>
         </div>
         <div class="bg-gray-800 p-4 rounded-xl transform transition duration-300 hover:scale-105">
-          <p class="text-3xl font-bold">1</p>
+          <p id="projectsStarted" class="text-3xl font-bold">0</p>
           <p class="text-gray-400 mt-1">Projects Started</p>
         </div>
         <div class="bg-gray-800 p-4 rounded-xl transform transition duration-300 hover:scale-105">
-          <p class="text-3xl font-bold">4</p>
+          <p id="interviewsExperienced" class="text-3xl font-bold">0</p>
           <p class="text-gray-400 mt-1">Interviews Experienced</p>
         </div>
       </div>
@@ -84,7 +89,13 @@
     <section id="resume" class="section hidden mt-16">Resume available on request.</section>
   </main>
 
-  <footer class="text-center text-gray-500 text-sm mt-20 mb-6">
+  <div class="flex justify-center space-x-6 mt-10">
+    <a href="mailto:your-email@outlook.com" target="_blank" class="text-gray-400 hover:text-blue-400"><i class="fas fa-envelope text-2xl"></i></a>
+    <a href="https://www.linkedin.com/in/your-linkedin" target="_blank" class="text-gray-400 hover:text-blue-400"><i class="fab fa-linkedin text-2xl"></i></a>
+    <a href="https://github.com/your-github" target="_blank" class="text-gray-400 hover:text-blue-400"><i class="fab fa-github text-2xl"></i></a>
+  </div>
+
+  <footer class="text-center text-gray-500 text-sm mt-10 mb-6">
     © 2025 Pablo Migo. Hosted on GitHub Pages.
   </footer>
 
@@ -112,6 +123,30 @@
         }, 10);
       }, 400);
     }
+
+    function animateCounter(id, start, end, duration) {
+      let range = end - start;
+      let stepTime = Math.abs(Math.floor(duration / range));
+      let current = start;
+      let increment = end > start ? 1 : -1;
+      let obj = document.getElementById(id);
+      let timer = setInterval(() => {
+        current += increment;
+        obj.textContent = current;
+        if (current === end) {
+          clearInterval(timer);
+        }
+      }, stepTime);
+    }
+
+    window.onload = function () {
+      setTimeout(() => {
+        animateCounter("monthsExperience", 5, 0, 1200);
+        animateCounter("projectsCompleted", 5, 0, 1200);
+        animateCounter("projectsStarted", 0, 1, 1200);
+        animateCounter("interviewsExperienced", 0, 4, 1200);
+      }, 800);
+    };
   </script>
 </body>
 </html>
