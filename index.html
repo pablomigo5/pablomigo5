@@ -11,6 +11,24 @@
     html {
       scroll-behavior: smooth;
     }
+    .fade-enter {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    .fade-enter-active {
+      opacity: 1;
+      transform: translateY(0);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .fade-exit {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .fade-exit-active {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.4s ease, transform 0.4s ease;
+    }
   </style>
 </head>
 <body class="bg-gray-900 text-white font-sans">
@@ -32,7 +50,7 @@
   </header>
 
   <main class="max-w-4xl mx-auto px-4">
-    <section id="home" class="section">
+    <section id="home" class="section fade-enter-active">
       <h2 class="text-2xl font-semibold border-b border-gray-700 pb-2 mb-6">About Me</h2>
       <p class="text-gray-300">
         Cybersecurity student passionate about building secure systems and exploring innovative tech solutions.
@@ -60,38 +78,10 @@
       </div>
     </section>
 
-    <section id="education" class="section hidden mt-16">
-      <h2 class="text-2xl font-semibold border-b border-gray-700 pb-2 mb-6">Education</h2>
-      <p class="text-gray-300">Cybersecurity Diploma – Add your institution and timeline here.</p>
-    </section>
-
-    <section id="projects" class="section hidden mt-16">
-      <h2 class="text-2xl font-semibold border-b border-gray-700 pb-2 mb-6">Projects</h2>
-      <div class="bg-gray-800 p-6 rounded-xl shadow-md">
-        <h3 class="text-xl font-bold">Blockchain Voting System</h3>
-        <p class="mt-2 text-gray-400">
-          A secure, tamper-proof electronic voting platform using blockchain technology, developed on Raspberry Pi with Python and DBMS integration.
-        </p>
-        <div class="flex flex-wrap gap-3 mt-4">
-          <span class="bg-gray-700 text-sm px-3 py-1 rounded-full">Python</span>
-          <span class="bg-gray-700 text-sm px-3 py-1 rounded-full">Raspberry Pi</span>
-          <span class="bg-gray-700 text-sm px-3 py-1 rounded-full">DBMS</span>
-        </div>
-      </div>
-      <div class="mt-6">
-        <a href="#" class="inline-block bg-blue-600 hover:bg-blue-500 text-white px-4 py-2 mt-4 rounded-md transition">View Other Projects</a>
-      </div>
-    </section>
-
-    <section id="experience" class="section hidden mt-16">
-      <h2 class="text-2xl font-semibold border-b border-gray-700 pb-2 mb-6">Experience</h2>
-      <p class="text-gray-300">Add your work or internship experience details here.</p>
-    </section>
-
-    <section id="resume" class="section hidden mt-16">
-      <h2 class="text-2xl font-semibold border-b border-gray-700 pb-2 mb-6">Résumé</h2>
-      <p class="text-gray-400">Available upon request. Please contact me through email or LinkedIn.</p>
-    </section>
+    <section id="education" class="section hidden mt-16"></section>
+    <section id="projects" class="section hidden mt-16"></section>
+    <section id="experience" class="section hidden mt-16"></section>
+    <section id="resume" class="section hidden mt-16"></section>
   </main>
 
   <footer class="text-center text-gray-500 text-sm mt-20 mb-6">
@@ -101,8 +91,21 @@
   <script>
     function showSection(sectionId) {
       const sections = document.querySelectorAll('.section');
-      sections.forEach(section => section.classList.add('hidden'));
-      document.getElementById(sectionId).classList.remove('hidden');
+      sections.forEach(section => {
+        section.classList.add('fade-exit-active');
+        setTimeout(() => {
+          section.classList.add('hidden');
+          section.classList.remove('fade-enter-active', 'fade-exit-active');
+        }, 400);
+      });
+
+      const target = document.getElementById(sectionId);
+      target.classList.remove('hidden');
+      target.classList.add('fade-enter');
+      setTimeout(() => {
+        target.classList.remove('fade-enter');
+        target.classList.add('fade-enter-active');
+      }, 10);
     }
   </script>
 </body>
