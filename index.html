@@ -39,13 +39,21 @@
       color: #000;
       box-shadow: 0 0 10px #00f0ff, 0 0 20px #00f0ff;
     }
+    .neon-icon {
+      color: #00f0ff;
+      transition: all 0.3s;
+      text-shadow: 0 0 5px #00f0ff, 0 0 10px #00f0ff;
+    }
+    .neon-icon:hover {
+      text-shadow: 0 0 10px #00f0ff, 0 0 20px #00f0ff;
+    }
   </style>
 </head>
 <body class="bg-gray-900 text-white font-sans">
   <header class="text-center py-10">
     <h1 class="text-4xl font-bold">Pablo Migo</h1>
-    <p class="text-lg text-gray-400 mt-2">Cybersecurity Student | Developer | Tech Enthusiast</p>
-    <nav class="mt-6 space-x-4">
+    <p class="text-lg text-gray-400 mt-4">Cybersecurity Student | Developer | Tech Enthusiast</p>
+    <nav class="mt-10 space-x-4">
       <button onclick="showSection('home')" class="neon-button text-sm">Home</button>
       <button onclick="showSection('education')" class="neon-button text-sm">Education</button>
       <button onclick="showSection('projects')" class="neon-button text-sm">Projects</button>
@@ -63,7 +71,7 @@
       </p>
 
       <h2 class="text-2xl font-semibold border-b border-gray-700 pb-2 mt-10 mb-6">Quick Stats</h2>
-      <div class="grid grid-cols-2 gap-6 text-center">
+      <div class="grid grid-cols-2 gap-6 text-center mb-12">
         <div class="bg-gray-800 p-4 rounded-xl transform transition duration-300 hover:scale-105">
           <p id="monthsExperience" class="text-3xl font-bold">0</p>
           <p class="text-gray-400 mt-1">Months of Experience</p>
@@ -89,13 +97,13 @@
     <section id="resume" class="section hidden mt-16">Resume available on request.</section>
   </main>
 
-  <div class="flex justify-center space-x-6 mt-10">
-    <a href="mailto:your-email@outlook.com" target="_blank" class="text-gray-400 hover:text-blue-400"><i class="fas fa-envelope text-2xl"></i></a>
-    <a href="https://www.linkedin.com/in/your-linkedin" target="_blank" class="text-gray-400 hover:text-blue-400"><i class="fab fa-linkedin text-2xl"></i></a>
-    <a href="https://github.com/your-github" target="_blank" class="text-gray-400 hover:text-blue-400"><i class="fab fa-github text-2xl"></i></a>
+  <div class="flex justify-center space-x-10 mt-10 mb-6">
+    <a href="mailto:your-email@outlook.com" target="_blank" class="neon-icon"><i class="fas fa-envelope text-2xl"></i></a>
+    <a href="https://www.linkedin.com/in/your-linkedin" target="_blank" class="neon-icon"><i class="fab fa-linkedin text-2xl"></i></a>
+    <a href="https://github.com/your-github" target="_blank" class="neon-icon"><i class="fab fa-github text-2xl"></i></a>
   </div>
 
-  <footer class="text-center text-gray-500 text-sm mt-10 mb-6">
+  <footer class="text-center text-gray-500 text-sm mb-6">
     © 2025 Pablo Migo. Hosted on GitHub Pages.
   </footer>
 
@@ -120,6 +128,8 @@
           newSection.classList.remove('fade-enter');
           newSection.classList.add('fade-enter-active');
           currentSection = newSection;
+
+          if (sectionId === 'home') animateCounters();
         }, 10);
       }, 400);
     }
@@ -139,13 +149,15 @@
       }, stepTime);
     }
 
+    function animateCounters() {
+      animateCounter("monthsExperience", 5, 0, 1200);
+      animateCounter("projectsCompleted", 5, 0, 1200);
+      animateCounter("projectsStarted", 0, 1, 1200);
+      animateCounter("interviewsExperienced", 0, 4, 1200);
+    }
+
     window.onload = function () {
-      setTimeout(() => {
-        animateCounter("monthsExperience", 5, 0, 1200);
-        animateCounter("projectsCompleted", 5, 0, 1200);
-        animateCounter("projectsStarted", 0, 1, 1200);
-        animateCounter("interviewsExperienced", 0, 4, 1200);
-      }, 800);
+      setTimeout(animateCounters, 800);
     };
   </script>
 </body>
