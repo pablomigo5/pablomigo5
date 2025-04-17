@@ -78,10 +78,10 @@
       </div>
     </section>
 
-    <section id="education" class="section hidden mt-16"></section>
-    <section id="projects" class="section hidden mt-16"></section>
-    <section id="experience" class="section hidden mt-16"></section>
-    <section id="resume" class="section hidden mt-16"></section>
+    <section id="education" class="section hidden mt-16">Education content goes here.</section>
+    <section id="projects" class="section hidden mt-16">Projects content goes here.</section>
+    <section id="experience" class="section hidden mt-16">Experience content goes here.</section>
+    <section id="resume" class="section hidden mt-16">Resume available on request.</section>
   </main>
 
   <footer class="text-center text-gray-500 text-sm mt-20 mb-6">
@@ -89,23 +89,28 @@
   </footer>
 
   <script>
-    function showSection(sectionId) {
-      const sections = document.querySelectorAll('.section');
-      sections.forEach(section => {
-        section.classList.add('fade-exit-active');
-        setTimeout(() => {
-          section.classList.add('hidden');
-          section.classList.remove('fade-enter-active', 'fade-exit-active');
-        }, 400);
-      });
+    let currentSection = document.getElementById('home');
 
-      const target = document.getElementById(sectionId);
-      target.classList.remove('hidden');
-      target.classList.add('fade-enter');
+    function showSection(sectionId) {
+      const newSection = document.getElementById(sectionId);
+      if (currentSection === newSection) return;
+
+      currentSection.classList.remove('fade-enter-active');
+      currentSection.classList.add('fade-exit-active');
+
       setTimeout(() => {
-        target.classList.remove('fade-enter');
-        target.classList.add('fade-enter-active');
-      }, 10);
+        currentSection.classList.add('hidden');
+        currentSection.classList.remove('fade-exit-active');
+
+        newSection.classList.remove('hidden');
+        newSection.classList.add('fade-enter');
+
+        setTimeout(() => {
+          newSection.classList.remove('fade-enter');
+          newSection.classList.add('fade-enter-active');
+          currentSection = newSection;
+        }, 10);
+      }, 400);
     }
   </script>
 </body>
