@@ -1,80 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Pablo Migo | Portfolio</title>
-  <link rel="stylesheet" href="style.css">
-  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pablo Migo - Cybersecurity Student</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div id="particles-js"></div>
 
-  <!-- Navigation Bar -->
-  <nav class="navbar">
-    <button onclick="showSection('home')">Home</button>
-    <button onclick="showSection('education')">Education</button>
-    <button onclick="showSection('projects')">Projects</button>
-    <button onclick="showSection('experience')">Experience</button>
-    <button onclick="showSection('resume')">Resume</button>
-  </nav>
-
-  <!-- Home Section -->
-  <section id="home" class="section active">
-    <h1 class="name">Pablo Migo</h1>
-    <h2 class="role">Blockchain Developer | Cybersecurity Enthusiast</h2>
-    <p class="about">Passionate about building secure digital solutions and exploring innovative technology.</p>
-
-    <div class="stats">
-      <div class="stat">
-        <h3 id="experienceCounter">0</h3>
-        <p>Months of Experience</p>
-      </div>
-      <div class="stat">
-        <h3 id="projectsCounter">0</h3>
-        <p>Projects Completed</p>
-      </div>
-      <div class="stat">
-        <h3 id="coursesCounter">0</h3>
-        <p>Courses Completed</p>
-      </div>
+    <!-- Navbar -->
+    <div class="navbar">
+        <div class="menu" onclick="showSection('home')">Home</div>
+        <div class="menu" onclick="showSection('education')">Education</div>
+        <div class="menu" onclick="showSection('projects')">Projects</div>
+        <div class="menu" onclick="showSection('experience')">Experience</div>
+        <div class="menu" onclick="showSection('resume')">Resume</div>
     </div>
 
-    <div class="icons">
-      <a href="https://github.com/yourgithub" target="_blank"><i class="fab fa-github"></i></a>
-      <a href="https://linkedin.com/in/yourlinkedin" target="_blank"><i class="fab fa-linkedin"></i></a>
-      <a href="mailto:youremail@outlook.com" target="_blank"><i class="fas fa-envelope"></i></a>
+    <!-- Home Section -->
+    <section id="home" class="section active">
+        <div class="intro">
+            <h1>Pablo Migo</h1>
+            <p class="tagline">Cybersecurity Student</p>
+        </div>
+        <div class="quick-stats">
+            <div class="stat" id="experience">
+                <span class="count">0</span>
+                <p>Months of Experience</p>
+            </div>
+            <div class="stat" id="projectsStarted">
+                <span class="count">1</span>
+                <p>Projects Started</p>
+            </div>
+            <div class="stat" id="projectsCompleted">
+                <span class="count">0</span>
+                <p>Projects Completed</p>
+            </div>
+            <div class="stat" id="certificatesEarned">
+                <span class="count">0</span>
+                <p>Certificates Earned</p>
+            </div>
+        </div>
+        <div class="socials">
+            <a href="https://www.linkedin.com/in/your-linkedin" class="social-link">LinkedIn</a>
+            <a href="https://github.com/your-github" class="social-link">GitHub</a>
+            <a href="mailto:your-email@example.com" class="social-link">Email</a>
+        </div>
+    </section>
+
+    <!-- Other Sections (Education, Projects, Experience, Resume) -->
+    <section id="education" class="section">
+        <h2>Education</h2>
+        <p>High School: XYZ High School</p>
+        <p>College: ABC University - Cybersecurity Major</p>
+    </section>
+
+    <section id="projects" class="section">
+        <h2>Projects</h2>
+        <p>Main Project: Blockchain Voting System</p>
+        <p>Other Projects: More coming soon...</p>
+    </section>
+
+    <section id="experience" class="section">
+        <h2>Experience</h2>
+        <p>Internships, freelance work, and more...</p>
+    </section>
+
+    <section id="resume" class="section">
+        <h2>Resume</h2>
+        <p>Available upon request</p>
+    </section>
+
+    <div class="footer">
+        <p>&copy; 2025 Pablo Migo</p>
     </div>
 
-    <footer>© 2025 Pablo Migo</footer>
-  </section>
-
-  <!-- Education Section -->
-  <section id="education" class="section">
-    <h2>Education</h2>
-    <p><strong>High School:</strong> ABC High School (Graduated 2020)</p>
-    <p><strong>College:</strong> TelOne Centre for Learning - Cyber Security (2025 Expected)</p>
-  </section>
-
-  <!-- Projects Section -->
-  <section id="projects" class="section">
-    <h2>Projects</h2>
-    <p><strong>Main Project:</strong> Blockchain Voting System</p>
-    <p>Technologies: Python, Raspberry Pi, DBMS</p>
-    <button>See More Projects</button>
-  </section>
-
-  <!-- Experience Section -->
-  <section id="experience" class="section">
-    <h2>Experience</h2>
-    <p>Currently gaining experience through hands-on projects and academic learning.</p>
-  </section>
-
-  <!-- Resume Section -->
-  <section id="resume" class="section">
-    <h2>Resume</h2>
-    <p>Resume available upon request. Contact via Outlook.</p>
-  </section>
-
-  <script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
