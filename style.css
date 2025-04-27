@@ -1,108 +1,108 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
-  margin: 0;
-  font-family: 'Poppins', sans-serif;
-  background: #0d0d0d;
-  color: white;
-  overflow-x: hidden;
+    font-family: 'Orbitron', sans-serif;
+    background-color: #000;
+    color: #fff;
 }
 
 .navbar {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  background: #111;
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  padding: 15px;
-  z-index: 1000;
+    display: flex;
+    justify-content: center;
+    padding: 10px;
 }
 
-.navbar button {
-  background: none;
-  border: none;
-  color: cyan;
-  font-size: 18px;
-  cursor: pointer;
-  text-shadow: 0 0 5px cyan;
-  transition: 0.3s;
+.menu {
+    margin: 0 20px;
+    font-size: 18px;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 10px;
+    transition: color 0.3s ease;
 }
 
-.navbar button:hover {
-  color: magenta;
-  text-shadow: 0 0 10px magenta;
+.menu:hover {
+    color: #00ffcc;
 }
 
 .section {
-  display: none;
-  padding: 120px 20px 60px;
-  text-align: center;
+    display: none;
+    padding: 40px;
+    text-align: center;
 }
 
-.section.active {
-  display: block;
-  animation: fadeIn 1s;
+.active {
+    display: block;
 }
 
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+#home {
+    background-color: #111;
 }
 
-.name {
-  font-size: 48px;
-  margin: 20px 0 10px;
+.intro {
+    margin-top: 50px;
 }
 
-.role {
-  font-size: 22px;
-  margin-bottom: 20px;
+.intro h1 {
+    font-size: 60px;
+    margin-bottom: 10px;
 }
 
-.about {
-  font-size: 18px;
-  margin-bottom: 40px;
-  max-width: 600px;
-  margin-left: auto;
-  margin-right: auto;
+.tagline {
+    font-size: 24px;
+    margin-bottom: 20px;
 }
 
-.stats {
-  display: flex;
-  justify-content: center;
-  gap: 40px;
-  margin-bottom: 40px;
+.quick-stats {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    margin: 50px 0;
 }
 
-.stat h3 {
-  font-size: 36px;
-  color: lime;
+.stat {
+    text-align: center;
 }
 
-.stat p {
-  margin-top: 10px;
-  font-size: 16px;
+.stat .count {
+    font-size: 50px;
+    font-weight: bold;
+    color: #00ffcc;
 }
 
-.icons {
-  margin-bottom: 20px;
+.socials {
+    margin-top: 20px;
 }
 
-.icons a {
-  margin: 0 10px;
-  font-size: 28px;
-  color: cyan;
-  text-shadow: 0 0 10px cyan;
-  transition: 0.3s;
+.social-link {
+    margin: 10px;
+    color: #00ffcc;
+    text-decoration: none;
+    font-size: 18px;
 }
 
-.icons a:hover {
-  color: magenta;
-  text-shadow: 0 0 15px magenta;
+.social-link:hover {
+    color: #ff66cc;
 }
 
-footer {
-  margin-top: 20px;
-  font-size: 14px;
-  color: gray;
+.footer {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 14px;
+}
+
+#particles-js {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
 }
