@@ -1,83 +1,216 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pablo Migo - Cybersecurity Student</title>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500&display=swap" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pablo Migo | Cybersecurity Portfolio</title>
+
+  <!-- TailwindCSS -->
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+
+  <!-- FontAwesome Icons -->
+  <script src="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/js/all.min.js" crossorigin="anonymous"></script>
+
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+    .fade-enter {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    .fade-enter-active {
+      opacity: 1;
+      transform: translateY(0);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .fade-exit-active {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.4s ease, transform 0.4s ease;
+    }
+    .neon-button {
+      color: #00f0ff;
+      border: 1px solid #00f0ff;
+      padding: 0.4rem 1rem;
+      border-radius: 0.375rem;
+      background-color: transparent;
+      transition: all 0.3s;
+      box-shadow: 0 0 5px #00f0ff, 0 0 10px #00f0ff;
+    }
+    .neon-button:hover {
+      background-color: #00f0ff;
+      color: #000;
+      box-shadow: 0 0 10px #00f0ff, 0 0 20px #00f0ff;
+    }
+    .neon-icon {
+      color: #00f0ff;
+      transition: all 0.3s;
+      text-shadow: 0 0 5px #00f0ff, 0 0 10px #00f0ff;
+    }
+    .neon-icon:hover {
+      text-shadow: 0 0 10px #00f0ff, 0 0 20px #00f0ff;
+    }
+  </style>
 </head>
-<body>
-    <div id="particles-js"></div>
 
-    <!-- Navbar -->
-    <div class="navbar">
-        <div class="menu" onclick="showSection('home')">Home</div>
-        <div class="menu" onclick="showSection('education')">Education</div>
-        <div class="menu" onclick="showSection('projects')">Projects</div>
-        <div class="menu" onclick="showSection('experience')">Experience</div>
-        <div class="menu" onclick="showSection('resume')">Resume</div>
-    </div>
+<body class="bg-gray-900 text-white font-sans">
 
-    <!-- Home Section -->
-    <section id="home" class="section active">
-        <div class="intro">
-            <h1>Pablo Migo</h1>
-            <p class="tagline">Cybersecurity Student</p>
+  <!-- HEADER -->
+  <header class="text-center py-10">
+    <h1 class="text-4xl font-bold">Pablo Migo</h1>
+    <p class="text-lg text-gray-400 mt-4">Cybersecurity Student | Developer | Tech Enthusiast</p>
+
+    <nav class="mt-10 space-x-4">
+      <button onclick="showSection('home')" class="neon-button text-sm">Home</button>
+      <button onclick="showSection('education')" class="neon-button text-sm">Education</button>
+      <button onclick="showSection('projects')" class="neon-button text-sm">Projects</button>
+      <button onclick="showSection('experience')" class="neon-button text-sm">Experience</button>
+      <button onclick="showSection('resume')" class="neon-button text-sm">Resume</button>
+    </nav>
+  </header>
+
+  <!-- MAIN -->
+  <main class="max-w-4xl mx-auto px-4">
+
+    <!-- HOME -->
+    <section id="home" class="section fade-enter-active">
+      <h2 class="text-2xl font-semibold border-b border-gray-700 pb-2 mb-6">About Me</h2>
+      <p class="text-gray-300 mb-10">
+        Cybersecurity student passionate about building secure systems and exploring innovative tech solutions. Experienced with Python, Raspberry Pi, and database management.
+      </p>
+
+      <h2 class="text-2xl font-semibold border-b border-gray-700 pb-2 mb-6">Quick Stats</h2>
+      <div class="grid grid-cols-2 gap-6 text-center mb-12">
+        <div class="bg-gray-800 p-4 rounded-xl hover:scale-105 transition-transform">
+          <p id="monthsExperience" class="text-3xl font-bold">0</p>
+          <p class="text-gray-400">Months of Experience</p>
         </div>
-        <div class="quick-stats">
-            <div class="stat" id="experience">
-                <span class="count">0</span>
-                <p>Months of Experience</p>
-            </div>
-            <div class="stat" id="projectsStarted">
-                <span class="count">1</span>
-                <p>Projects Started</p>
-            </div>
-            <div class="stat" id="projectsCompleted">
-                <span class="count">0</span>
-                <p>Projects Completed</p>
-            </div>
-            <div class="stat" id="certificatesEarned">
-                <span class="count">0</span>
-                <p>Certificates Earned</p>
-            </div>
+        <div class="bg-gray-800 p-4 rounded-xl hover:scale-105 transition-transform">
+          <p id="projectsCompleted" class="text-3xl font-bold">0</p>
+          <p class="text-gray-400">Projects Completed</p>
         </div>
-        <div class="socials">
-            <a href="https://www.linkedin.com/in/your-linkedin" class="social-link">LinkedIn</a>
-            <a href="https://github.com/your-github" class="social-link">GitHub</a>
-            <a href="mailto:your-email@example.com" class="social-link">Email</a>
+        <div class="bg-gray-800 p-4 rounded-xl hover:scale-105 transition-transform">
+          <p id="projectsStarted" class="text-3xl font-bold">0</p>
+          <p class="text-gray-400">Projects Started</p>
         </div>
+        <div class="bg-gray-800 p-4 rounded-xl hover:scale-105 transition-transform">
+          <p id="interviewsExperienced" class="text-3xl font-bold">0</p>
+          <p class="text-gray-400">Interviews Experienced</p>
+        </div>
+      </div>
     </section>
 
-    <!-- Other Sections (Education, Projects, Experience, Resume) -->
-    <section id="education" class="section">
-        <h2>Education</h2>
-        <p>High School: XYZ High School</p>
-        <p>College: ABC University - Cybersecurity Major</p>
+    <!-- EDUCATION -->
+    <section id="education" class="section hidden mt-16">
+      <h2 class="text-2xl font-semibold border-b border-gray-700 pb-2 mb-6">Education</h2>
+      <div class="flex items-center bg-gray-800 p-5 rounded-xl space-x-6">
+        <img src="path/to/college-logo.png" alt="College Logo" class="w-20 h-20 object-cover rounded-full">
+        <div>
+          <h3 class="text-xl font-bold">TelOne Centre for Learning</h3>
+          <p class="text-gray-300">Diploma in Cybersecurity</p>
+          <p class="text-gray-400 text-sm">Expected Completion: 2025</p>
+        </div>
+      </div>
     </section>
 
-    <section id="projects" class="section">
-        <h2>Projects</h2>
-        <p>Main Project: Blockchain Voting System</p>
-        <p>Other Projects: More coming soon...</p>
+    <!-- PROJECTS -->
+    <section id="projects" class="section hidden mt-16">
+      <h2 class="text-2xl font-semibold border-b border-gray-700 pb-2 mb-6">Projects</h2>
+      <div class="bg-gray-800 p-5 rounded-xl">
+        <h3 class="text-xl font-bold">Blockchain Voting System</h3>
+        <p class="text-gray-300 mt-2">A secure and transparent electronic voting platform using blockchain technology, Python, Raspberry Pi, and DBMS.</p>
+        <img src="path/to/blockchain-voting-image.png" alt="Blockchain Voting System" class="rounded-xl mt-6 mb-4">
+        <a href="#" class="neon-button text-sm">View Project</a>
+      </div>
     </section>
 
-    <section id="experience" class="section">
-        <h2>Experience</h2>
-        <p>Internships, freelance work, and more...</p>
+    <!-- EXPERIENCE -->
+    <section id="experience" class="section hidden mt-16">
+      <h2 class="text-2xl font-semibold border-b border-gray-700 pb-2 mb-6">Experience</h2>
+      <div class="flex items-center bg-gray-800 p-5 rounded-xl space-x-6">
+        <img src="path/to/company-logo.png" alt="Company Logo" class="w-20 h-20 object-cover rounded-full">
+        <div>
+          <h3 class="text-xl font-bold">Internship at Tech Company</h3>
+          <p class="text-gray-300">Worked on security audits and system hardening initiatives to enhance cyber resilience.</p>
+        </div>
+      </div>
     </section>
 
-    <section id="resume" class="section">
-        <h2>Resume</h2>
-        <p>Available upon request</p>
+    <!-- RESUME -->
+    <section id="resume" class="section hidden mt-16">
+      <h2 class="text-2xl font-semibold border-b border-gray-700 pb-2 mb-6">Resume</h2>
+      <p class="text-gray-300">Available on request. Please contact me via Email or LinkedIn.</p>
     </section>
 
-    <div class="footer">
-        <p>&copy; 2025 Pablo Migo</p>
-    </div>
+  </main>
 
-    <script src="script.js"></script>
+  <!-- SOCIAL ICONS -->
+  <div class="flex justify-center space-x-10 mt-10 mb-6">
+    <a href="mailto:your-email@outlook.com" target="_blank" class="neon-icon"><i class="fas fa-envelope text-2xl"></i></a>
+    <a href="https://linkedin.com/in/your-linkedin" target="_blank" class="neon-icon"><i class="fab fa-linkedin text-2xl"></i></a>
+    <a href="https://github.com/your-github" target="_blank" class="neon-icon"><i class="fab fa-github text-2xl"></i></a>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="text-center text-gray-500 text-sm mb-6">
+    © 2025 Pablo Migo. Hosted on GitHub Pages.
+  </footer>
+
+  <!-- SCRIPT -->
+  <script>
+    let currentSection = document.getElementById('home');
+
+    function showSection(sectionId) {
+      const newSection = document.getElementById(sectionId);
+      if (currentSection === newSection) return;
+
+      currentSection.classList.remove('fade-enter-active');
+      currentSection.classList.add('fade-exit-active');
+
+      setTimeout(() => {
+        currentSection.classList.add('hidden');
+        currentSection.classList.remove('fade-exit-active');
+
+        newSection.classList.remove('hidden');
+        newSection.classList.add('fade-enter');
+
+        setTimeout(() => {
+          newSection.classList.remove('fade-enter');
+          newSection.classList.add('fade-enter-active');
+          currentSection = newSection;
+        }, 10);
+
+        if (sectionId === 'home') animateCounters();
+      }, 400);
+    }
+
+    function animateCounter(id, start, end, duration) {
+      let range = end - start;
+      let stepTime = Math.abs(Math.floor(duration / range));
+      let current = start;
+      let increment = end > start ? 1 : -1;
+      let obj = document.getElementById(id);
+      let timer = setInterval(() => {
+        current += increment;
+        obj.textContent = current;
+        if (current === end) {
+          clearInterval(timer);
+        }
+      }, stepTime);
+    }
+
+    function animateCounters() {
+      animateCounter("monthsExperience", 5, 0, 1200);
+      animateCounter("projectsCompleted", 5, 0, 1200);
+      animateCounter("projectsStarted", 0, 1, 1200);
+      animateCounter("interviewsExperienced", 0, 4, 1200);
+    }
+
+    window.onload = function () {
+      setTimeout(animateCounters, 800);
+    };
+  </script>
+
 </body>
 </html>
