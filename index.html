@@ -236,5 +236,71 @@
     };
   </script>
 
+  // Animate Circular Progress Bars
+function createSkillCircle(label, percent) {
+  const radius = 45;
+  const circumference = 2 * Math.PI * radius;
+  const offset = circumference - (percent / 100) * circumference;
+
+  return `
+    <div class="flex flex-col items-center">
+      <svg class="w-24 h-24" viewBox="0 0 120 120">
+        <circle cx="60" cy="60" r="${radius}" stroke="#444" stroke-width="10" fill="none" />
+        <circle cx="60" cy="60" r="${radius}" stroke="#00f0ff" stroke-width="10"
+                fill="none" stroke-linecap="round"
+                stroke-dasharray="${circumference}"
+                stroke-dashoffset="${circumference}"
+                class="animated-circle"/>
+        <text x="60" y="65" text-anchor="middle" fill="#fff" font-size="18">${percent}%</text>
+      </svg>
+      <p class="mt-2 text-sm">${label}</p>
+    </div>
+  `;
+}
+
+function animateSkills() {
+  document.querySelectorAll('.skill-circle').forEach(el => {
+    const label = el.dataset.label;
+    const percent = parseInt(el.dataset.percent);
+    el.innerHTML = createSkillCircle(label, percent);
+  });
+
+  setTimeout(() => {
+    document.querySelectorAll('.animated-circle').forEach(circle => {
+      const dashArray = circle.getAttribute('stroke-dasharray');
+      const percent = circle.parentElement.parentElement.querySelector("text").textContent.replace('%', '');
+      const offset = dashArray - (percent / 100) * dashArray;
+      circle.style.transition = 'stroke-dashoffset 1.2s ease-out';
+      circle.setAttribute('stroke-dashoffset', offset);
+    });
+  }, 100);
+}
+
+// Call it on Home section load
+function showSection(sectionId) {
+  const newSection = document.getElementById(sectionId);
+  if (currentSection === newSection) return;
+
+  currentSection.classList.remove('fade-enter-active');
+  currentSection.classList.add('fade-exit-active');
+
+  setTimeout(() => {
+    currentSection.classList.add('hidden');
+    currentSection.classList.remove('fade-exit-active');
+
+    newSection.classList.remove('hidden');
+    newSection.classList.add('fade-enter');
+
+    setTimeout(() => {
+      newSection.classList.remove('fade-enter');
+      newSection.classList.add('fade-enter-active');
+      currentSection = newSection;
+
+      if (sectionId === 'skills') animateSkills();
+      if (sectionId === 'home') animateCounters();
+    }, 10);
+  }, 400);
+}
+
 </body>
 </html>
